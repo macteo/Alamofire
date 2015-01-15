@@ -25,6 +25,10 @@ import Foundation
 /// Alamofire errors
 public let AlamofireErrorDomain = "com.alamofire.error"
 
+struct Alamofire {
+    static let manager = Manager.sharedInstance
+}
+
 /**
     HTTP method definitions.
 
