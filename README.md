@@ -1,5 +1,7 @@
 ![Alamofire: Elegant Networking in Swift](https://raw.githubusercontent.com/Alamofire/Alamofire/assets/alamofire.png)
 
+[![Build Status](http://img.shields.io/travis/Alamofire/Alamofire.swift/master.svg?style=flat)](https://travis-ci.org/Alamofire/Alamofire)
+
 Alamofire is an HTTP networking library written in Swift, from the [creator](https://github.com/mattt) of [AFNetworking](https://github.com/afnetworking/afnetworking).
 
 ## Features
@@ -514,7 +516,7 @@ extension Alamofire.Request {
         }
 
         return response(serializer: serializer, completionHandler: { (request, response, object, error) in
-            completionHandler(request, response, object, error)
+            completionHandler(request, response, object as? T, error)
         })
     }
 }
@@ -687,7 +689,7 @@ enum Router: URLRequestConvertible {
 
     var URLRequest: NSURLRequest {
         let URL = NSURL(string: Router.baseURLString)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL!.URLByAppendingPathComponent(path))
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
 
         if let token = Router.OAuthToken {
