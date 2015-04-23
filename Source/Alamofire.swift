@@ -262,10 +262,10 @@ public class Manager {
                 let os: AnyObject = NSProcessInfo.processInfo().operatingSystemVersionString ?? "Unknown"
 
                 var mutableUserAgent = NSMutableString(string: "\(executable)/\(bundle) (\(version); OS \(os))") as CFMutableString
-                let transform = NSString(string: "Any-Latin; Latin-ASCII; [:^ASCII:] Remove") as CFString
-                if CFStringTransform(mutableUserAgent, nil, transform, 0) == 1 {
-                    return mutableUserAgent as NSString as! String
-                }
+//                let transform = NSString(string: "Any-Latin; Latin-ASCII; [:^ASCII:] Remove") as CFString
+//                if CFStringTransform(mutableUserAgent, nil, transform, 0) == 1 {
+//                    return mutableUserAgent as NSString as! String
+//                }
             }
 
             return "Alamofire"
